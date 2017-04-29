@@ -1,0 +1,18 @@
+h1 {
+  text-align: center;
+}
+
+/*for testing*/
+div.test {
+  background-color: lightgrey;
+  height: 300px;
+}
+
+div.wine-name {
+  font-size: 30px;
+}
+
+div.wine-details {
+  font-size: 20px;
+  text-align: right;
+}

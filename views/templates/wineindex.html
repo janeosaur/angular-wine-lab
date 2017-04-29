@@ -1,0 +1,11 @@
+<div ng-repeat="each in wineIndexCtrl.wines">
+  <div class="row">
+    <div class="col m10 offset-m1 test">
+      <div class="col m4 image"> <img ng-src={{each.image}}></div>
+      <div class="col m7 offset-m1 wine-name">
+        {{each.name}}
+        <div class="wine-details"> {{each.country}}, {{each.year}}</div>
+      </div>
+    </div>
+  </div>
+</div>

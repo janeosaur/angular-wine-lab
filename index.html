@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="wineApp">
+  <head>
+    <meta charset="utf-8">
+    <title> more wine? </title>
+
+    <!-- STYLESHEETS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+    <link rel="stylesheet" href="/public/styles/styles.css">
+
+    <!-- VENDOR SCRIPTS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-route.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+
+    <!-- APPLICATION SCRIPTS -->
+    <script src="/public/scripts/app.js"></script>
+    <script src="/public/scripts/controllers/wineIndexController.js"></script>
+    <script src="/public/scripts/controllers/wineShowController.js"></script>
+
+  </head>
+  <body>
+      <!-- <h2> sanity {{4+4}} </h2> -->
+      <h1> More Wine? </h1>
+      <!-- nav and searchbar -->
+      <hr>
+
+      <div class="container">
+          <div ng-view> </div>
+      </div>
+
+
+
+  </body>
+</html>
