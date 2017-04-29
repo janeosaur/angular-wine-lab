@@ -6,13 +6,38 @@ h1 {
 div.test {
   background-color: lightgrey;
   height: 300px;
+  position: relative;
 }
 
 div.wine-name {
   font-size: 30px;
+  margin-top: 30px;
 }
 
 div.wine-details {
-  font-size: 20px;
-  text-align: right;
+  font-size: 25px;
+  margin-top: 30px;
+}
+
+div.price {
+  position: absolute;
+  bottom: 60px;
+  right: 60px;
+}
+
+img.cart {
+  height: 50px;
+  position: absolute;
+  right: -40px;
+}
+
+div.wine-desc {
+  font-size: 25px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+img.cart-show {
+  height: 50px;
+  right: 10px;
 }

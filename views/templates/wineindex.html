@@ -3,8 +3,11 @@
     <div class="col m10 offset-m1 test">
       <div class="col m4 image"> <img ng-src={{each.image}}></div>
       <div class="col m7 offset-m1 wine-name">
-        {{each.name}}
+        <a ng-href="/wines/{{each._id}}"> {{each.name}} </a> 
         <div class="wine-details"> {{each.country}}, {{each.year}}</div>
+        <div class="price"> ${{each.price}}.00
+          <img class="cart" src="http://www.pngmart.com/files/3/Add-To-Cart-Button-PNG-Pic.png">
+        </div>
       </div>
     </div>
   </div>

@@ -21,12 +21,12 @@ config.$inject = ['$routeProvider', '$locationProvider'];
 function config ($routeProvider, $locationProvider) {
   $routeProvider
     .when('/', {
-      templateUrl: '/views/templates/wineindex.html', // check if it needs .html
+      templateUrl: '/views/templates/wineindex.html',
       controller: 'wineIndexController',
       controllerAs: 'wineIndexCtrl'
     })
     .when('/wines/:id', {
-      templateUrl: '/view/templates/wineshow.html',
+      templateUrl: '/views/templates/wineshow.html',
       controller: 'wineShowController',
       controllerAs: 'wineShowCtrl'
     })
@@ -55,7 +55,17 @@ function wineIndexController( $http ) {
   });
 }
 
-wineShowController.$inject = ['$http'];
-function wineShowController( $http ) {
-
+wineShowController.$inject = ['$http', '$routeParams', '$location'];
+function wineShowController( $http, $routeParams, $location ) {
+  var vm = this;
+  vm.wine = {};
+  $http({
+    method: 'get',
+    url: 'https://super-crud.herokuapp.com/wines/' + $routeParams.id // relates to line 28 route
+  }).then(function successCallback(response) {
+    // console.log(response.data);
+    vm.wine = response.data
+  }, function errorCallback(response) {
+    console.log('error', response)
+  });
 }
