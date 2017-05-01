@@ -86,12 +86,28 @@ function wineShowController( $http, $routeParams, $location ) {
   vm.deleteWine = function (wine) {
     $http({
       method: 'delete',
-      url: 'https://super-crud.herokuapp.com/wines/' + wine._id // or .id?
+      url: 'https://super-crud.herokuapp.com/wines/' + wine._id // why not .id?
+      // how does it know which wine to take ID from??
     }).then(function successCallback(response) {
       console.log('delete success ', response);
       $location.path('/');
     }, function errorCallback(response) {
       console.log('delete error ', response)
+    })
+  };
+
+  vm.editWine = function (wine) {
+    $http({
+      method: 'put',
+      url: 'https://super-crud.herokuapp.com/wines/' + wine._id,
+      data: wine
+    }).then(function successCallback(response) {
+      vm.wine = response.data;
+      // updated stuff only shows on page reload..
+      $location.path('/');
+      console.log('success editing ', response)
+    }, function errorCallback(response) {
+      console.log('error editing ', response)
     })
   }
 }

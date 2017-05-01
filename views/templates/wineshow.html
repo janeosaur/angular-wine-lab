@@ -2,14 +2,27 @@
   <div class="col m10 offset-m1">
     <div class="col m4"> <img class="pic" ng-src={{wineShowCtrl.wine.image}}></div>
     <div class="col m7 offset-m1 wine-name">
-      {{wineShowCtrl.wine.name}}
-      <div class="wine-details"> {{wineShowCtrl.wine.country}}, {{wineShowCtrl.wine.year}}</div>
-      <div class="wine-desc"> {{wineShowCtrl.wine.description}}</div>
-      <div class="price-show"> ${{wineShowCtrl.wine.price}}.00 </div>
-      <div class="buttons">
-        <a class="waves-effect waves-light btn" ng-click="wineShowCtrl.deleteWine(wineShowCtrl.wine)"> Delete </a>
-        <a class="waves-effect waves-light btn"> Edit </a>
-      </div>
+      <form ng-submit="wineShowCtrl.editWine(wineShowCtrl.wine)">
+        <h3 ng-hide="editing"> {{wineShowCtrl.wine.name}} </h3>
+        <input ng-show="editing" ng-model="wineShowCtrl.wine.name" type="text">
+        <div class="wine-details" >
+          <p ng-hide="editing"> {{wineShowCtrl.wine.country}}, </p>
+          <input ng-show="editing" ng-model="wineShowCtrl.wine.country" type="text">
+          <span ng-hide="editing"> {{wineShowCtrl.wine.year}} </span>
+          <input ng-show="editing" ng-model="wineShowCtrl.wine.year" type="text">
+        </div>
+        <div class="wine-desc" ng-hide="editing"> {{wineShowCtrl.wine.description}}</div>
+        <input ng-show="editing" ng-model="wineShowCtrl.wine.description" type="text">
+        <div class="price-show" ng-hide="editing"> ${{wineShowCtrl.wine.price}}.00 </div>
+        <input ng-show="editing" ng-model="wineShowCtrl.wine.price" type="text">
+        <div class="buttons">
+          <a class="waves-effect waves-light btn red darken-4" ng-click="wineShowCtrl.deleteWine(wineShowCtrl.wine)"> Delete </a>
+          <a class="waves-effect waves-light btn deep-orange" ng-hide="editing" ng-click="editing = true"> Edit </a>
+          <a class="waves-effect waves-light btn deep-orange" ng-show="editing" ng-click="wineShowCtrl.editWine(wineShowCtrl.wine); editing = false">Save Changes</a>
+          <a class="waves-effect waves-light btn blue-grey" ng-show="editing" ng-click="editing=false">Cancel</a>
+        </div>
+      </form>
     </div>
+
   </div>
 </div>
