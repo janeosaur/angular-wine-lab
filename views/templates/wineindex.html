@@ -1,7 +1,9 @@
 <div>
-  <input type="text" class="form-control" ng-model="search" placeholder="Search Our Wines">
+  <a class="waves-effect waves-light btn add" ng-click="add=true" ng-hide="add">Add Wine</a>
+
+  <input type="text" class="form-control search" ng-model="search" placeholder="Search Our Wines">
+
   <!-- Add Wine Form -->
-  <a class="waves-effect waves-light btn" ng-click="add=true" ng-hide="add">Add Wine</a>
 
   <form ng-show="add" ng-submit="wineIndexCtrl.addWine()">
     <label>Name</label>
