@@ -2,9 +2,7 @@ h1 {
   text-align: center;
 }
 
-/*for testing*/
 div.test {
-  background-color: lightgrey;
   height: 300px;
   position: relative;
 }
@@ -25,12 +23,6 @@ div.price {
   right: 60px;
 }
 
-img.cart {
-  height: 50px;
-  position: absolute;
-  right: -40px;
-}
-
 div.wine-desc {
   font-size: 25px;
   margin-top: 20px;
@@ -40,4 +32,12 @@ div.wine-desc {
 img.cart-show {
   height: 50px;
   right: 10px;
+}
+
+img.pic {
+  height: 400px;
+}
+
+div.show {
+  margin-top: 50px;
 }

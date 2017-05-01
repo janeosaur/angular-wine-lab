@@ -1,14 +1,32 @@
-<div ng-repeat="each in wineIndexCtrl.wines">
-  <div class="row">
-    <div class="col m10 offset-m1 test">
-      <div class="col m4 image"> <img ng-src={{each.image}}></div>
-      <div class="col m7 offset-m1 wine-name">
-        <a ng-href="/wines/{{each._id}}"> {{each.name}} </a> 
-        <div class="wine-details"> {{each.country}}, {{each.year}}</div>
-        <div class="price"> ${{each.price}}.00
-          <img class="cart" src="http://www.pngmart.com/files/3/Add-To-Cart-Button-PNG-Pic.png">
+<div>
+  <input type="text" class="form-control" ng-model="search" placeholder="Search Our Wines">
+  <!-- Add Wine Form -->
+  <a class="waves-effect waves-light btn" ng-click="add=true" ng-hide="add">Add Wine</a>
+
+  <form ng-show="add" ng-submit="wineIndexCtrl.addWine()">
+    <label>Name</label>
+    <input type="text" ng-model="wineIndexCtrl.newWine.name">
+    <label>Country</label>
+    <input type="text" ng-model="wineIndexCtrl.newWine.country">
+    <label>Year</label>
+    <input type="text" ng-model="wineIndexCtrl.newWine.year">
+    <label>Price</label>
+    <input type="text" ng-model="wineIndexCtrl.newWine.price">
+    <button class="waves-effect waves-light btn" type="submit" ng-show="add" ng-click="add=false">Save</button>
+    <a class="waves-effect waves-light btn" ng-show"add" ng-click="add=false">Cancel</a>
+  </form>
+
+  <div ng-repeat="each in wineIndexCtrl.wines | filter: search"> <!-- console error but still works  -->
+    <div class="row">
+      <div class="col m10 offset-m1 test">
+        <div class="col m4 image"> <img ng-src={{each.image}}></div>
+        <div class="col m7 offset-m1 wine-name">
+          <a ng-href="/wines/{{each._id}}"> {{each.name}} </a>
+          <div class="wine-details"> {{each.country}}, {{each.year}}</div>
+          <div class="price"> ${{each.price}}.00 </div>
         </div>
       </div>
     </div>
   </div>
+
 </div>
